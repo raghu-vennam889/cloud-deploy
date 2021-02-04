@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-01-29T11:38:10Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: wordpress-deployment
+  name: wordpress-deployment-service
+  namespace: default
+  resourceVersion: "3125"
+  selfLink: /api/v1/namespaces/default/services/wordpress-deployment-service
+  uid: af249a26-4e7a-4869-bd93-0f519e302c75
+spec:
+  clusterIP: 10.8.14.141
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32389
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: wordpress-deployment
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.239.252.47
